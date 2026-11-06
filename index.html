@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La VOC in Asia, fonti open access</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gelasio:wght@500;700&family=Atkinson+Hyperlegible:wght@400;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: una colonna di schede-fonte raggruppate per tipo; stessa palette della mappa (indaco, rame, verde noce moscata) */
+:root{
+  --bg:#f6f5f1; --surface:#ffffff; --fg:#1d2233; --muted:#5d6475; --line:#d8d9de;
+  --indigo:#2f4a8a; --indigo-soft:#e5eaf5; --copper:#a5562b; --copper-soft:#f5e7dd; --nut:#5e7a3a; --nut-soft:#e8efdc;
+  --f-display:"Gelasio",Georgia,serif; --f-body:"Atkinson Hyperlegible",system-ui,sans-serif; --f-mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#14171f; --surface:#1c2029; --fg:#e7e8ec; --muted:#a0a6b4; --line:#323846;
+  --indigo:#8fa8e6; --indigo-soft:#232c42; --copper:#e39a6c; --copper-soft:#3a2a20; --nut:#a7c47f; --nut-soft:#26301c; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#14171f; --surface:#1c2029; --fg:#e7e8ec; --muted:#a0a6b4; --line:#323846;
+  --indigo:#8fa8e6; --indigo-soft:#232c42; --copper:#e39a6c; --copper-soft:#3a2a20; --nut:#a7c47f; --nut-soft:#26301c; color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15.5px;line-height:1.5}
+.wrap{max-width:760px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:22px 48px}
+.eyebrow{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--copper)}
+h1{font-family:var(--f-display);font-size:1.7rem;line-height:1.2;margin:.25rem 0 .4rem;text-wrap:balance}
+h2{font-family:var(--f-display);font-size:1.25rem;margin:1.8rem 0 .2rem;text-wrap:balance}
+.sub{color:var(--muted);font-size:.92rem;margin:.2rem 0 .8rem}
+.progress{display:flex;align-items:center;gap:10px;margin:12px 0 4px;font-family:var(--f-mono);font-size:.82rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.bar{flex:1;height:6px;background:var(--line);border-radius:99px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--nut);width:0;transition:width .3s}
+.list{display:grid;gap:8px;margin-top:8px}
+.item{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:11px 13px;display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start}
+.item.done{opacity:.6}
+.item input{width:18px;height:18px;margin-top:3px;accent-color:var(--nut);cursor:pointer}
+.body{min-width:0}
+.t{font-weight:700}
+.t i{font-weight:700}
+.note{color:var(--muted);font-size:.86rem;margin-top:2px}
+.links{display:flex;flex-wrap:wrap;gap:6px;margin-top:7px}
+.links a{font:600 .82rem var(--f-body);text-decoration:none;color:var(--indigo);background:var(--indigo-soft);padding:4px 10px;border-radius:999px}
+.links a:hover{text-decoration:underline}
+.badge{display:inline-block;font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:1px 6px;border-radius:4px;margin-left:6px;vertical-align:2px}
+.b-pdf{background:var(--nut-soft);color:var(--nut)}
+.b-web{background:var(--indigo-soft);color:var(--indigo)}
+.b-ask{background:var(--copper-soft);color:var(--copper)}
+.missing{columns:2;column-gap:24px;font-size:.9rem;padding-left:1.1rem;margin:.5rem 0}
+@media (max-width:560px){.missing{columns:1}}
+.missing li{break-inside:avoid;margin:.15rem 0}
+a:focus-visible,input:focus-visible{outline:2px solid var(--copper);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){.bar i{transition:none}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="eyebrow">Tesi magistrale · La VOC in Asia</div>
+  <h1>Opere ottenute in open access</h1>
+  <p class="sub">Spunta quelle che hai già scaricato: la spunta resta salvata in questo browser.</p>
+  <div class="progress"><div class="bar"><i id="bar"></i></div><span id="count"></span></div>
+  <div id="sections"></div>
+
+  <h2>Libri presi in prestito o ad accesso limitato</h2>
+  <ul class="missing">
+    <li>Alexandrowicz, <i>Law of Nations in the East Indies</i></li><li>Arai Hakuseki, <i>Told Round a Brushwood Fire</i></li><li>Bernstein, <i>The Birth of Plenty</i></li><li>Blussé, <i>Strange Company</i></li><li>Blussé, <i>Visible Cities</i></li><li>Boxer, <i>The Dutch Seaborne Empire</i></li><li>Braudel, <i>Civiltà materiale</i></li><li>Carioti, <i>L'avventura della VOC</i></li><li>Clulow, <i>The Company and the Shogun</i></li><li>De Vries, <i>The Industrious Revolution</i></li><li><i>Deshima Dagregisters</i></li><li>Doeff, <i>Recollections of Japan</i> (2003)</li><li>Fairbank, <i>The Chinese World Order</i></li><li>Gaastra, <i>Expansion and Decline</i></li><li>Glamann, <i>Dutch-Asiatic Trade</i></li><li>Gordon, <i>A Modern History of Japan</i></li><li>Grozio, <i>Il mare libero</i> (trad. Ferrara)</li><li>Hanna, <i>Indonesian Banda</i></li><li>Howell, <i>Capitalism from Within</i></li><li>Israel, <i>Dutch Primacy</i></li><li>Jacobs, <i>Merchant in Asia</i></li><li>Kaempfer, ed. Bodart-Bailey (1999)</li><li>Knaap, <i>Shallow Waters</i></li><li>Laver, <i>Gift Giving and Diplomacy</i></li><li>Matsukata, <i>Oranda fūsetsugaki</i></li><li>Nagtegaal, <i>Riding the Dutch Tiger</i></li><li>Pomeranz, <i>The Great Divergence</i></li><li>Prakash, <i>European Commercial Enterprise</i></li><li>Ptak, <i>China's Seaborne Trade</i></li><li>Reid, <i>Age of Commerce</i> I e II</li><li>Ricklefs, <i>Modern Indonesia</i></li><li>Ricklefs, <i>War, Culture and Economy</i></li><li>Screech, <i>Secret Memoirs</i></li><li>Screech, <i>The Lens Within the Heart</i></li><li>Shimada, <i>Japanese Copper</i></li><li>Somers Heidhues, <i>Bangka Tin</i></li><li>Somers Heidhues, <i>Golddiggers</i></li><li>Steensgaard, <i>Asian Trade Revolution</i></li><li>Toby, <i>State and Diplomacy</i></li><li>Totman, <i>Early Modern Japan</i></li><li>Trocki, <i>Prince of Pirates</i></li><li>Van Dyke, <i>The Canton Trade</i></li><li>Van Ittersum, <i>Profit and Principle</i></li><li>Walker, <i>Conquest of Ainu Lands</i></li><li>Ward, <i>Networks of Empire</i></li><li>Yuan, <i>Chinese Democracies</i></li>
+  </ul>
+</div>
+
+<script>
+// [id, titolo (html), nota, badge, [[etichetta,url],...]]
+const S=[
+["Fonti primarie",[
+ ["gm","<i>Generale Missiven</i> (Coolhaas et al.)","Tutti i volumi consultabili e scaricabili dal sito dell'Huygens Instituut.","web",[["Apri Huygens","https://resources.huygens.knaw.nl/vocgeneralemissiven/index_html_en"]]],
+ ["dr","<i>Dagh-Register gehouden int Casteel Batavia</i>","Volumi digitalizzati dall'Arsip Nasional (ANRI) e alcuni su archive.org.","web",[["ANRI, volumi","https://sejarah-nusantara.anri.go.id/daily_journals_volumes/"],["archive.org, es. 1","https://archive.org/details/daghregistergeh01kologoog"],["archive.org, es. 2","https://archive.org/details/daghregistergeh00kologoog"]]],
+ ["coen","Colenbrander, <i>Jan Pietersz. Coen: Bescheiden</i>","Vol. 1 su archive.org. Gli altri volumi si cercano sullo stesso sito.","pdf",[["Vol. 1","https://archive.org/details/janpieterszcoenb01coen"],["Cerca altri volumi","https://archive.org/search?query=janpieterszcoenb"]]],
+ ["lins","Linschoten, <i>Itinerario</i> (ed. Kern, 5 voll.)","Testo completo su DBNL, scaricabile in PDF.","pdf",[["DBNL","https://dbnl.org/tekst/lins001itin00_01"]]],
+ ["groz","Grozio, <i>Mare Liberum</i>","Latino e inglese (trad. Magoffin 1916). Non è la traduzione italiana citata in tesi.","web",[["Liberty Fund","https://oll.libertyfund.org/titles/scott-the-freedom-of-the-seas-latin-and-english-version-magoffin-trans"],["Project Gutenberg","https://gutenberg.org/cache/epub/75962/pg75962-images.html"]]],
+ ["kaem","Kaempfer, <i>The History of Japan</i>","Edizione 1906 (trad. Scheuchzer). Le pagine non coincidono con l'ed. 1999 citata.","pdf",[["Vol. 1","https://od1.oregondigital.org/catalog/oregondigital:df72dj540"],["Vol. 3","https://od1.oregondigital.org/catalog/oregondigital:df72dj604"],["Princeton (vol. 1)","https://commons.ptsem.edu/id/historyofjapanto01kaem"]]],
+ ["thun","Thunberg, <i>Travels in Europe, Africa and Asia</i>","Volumi digitalizzati, Wellcome Collection.","pdf",[["Wellcome","https://wellcomecollection.org/works/wgpxst43"]]],
+ ["sieb","Siebold, <i>Nippon</i>","Digitalizzato dall'Università di Halle.","pdf",[["Halle","https://www.opendata.uni-halle.de/handle/1981185920/112795"]]],
+ ["doeff","Doeff, <i>Herinneringen uit Japan</i> (1833)","Scheda della Deutsche Digitale Bibliothek. Scansione completa non verificata.","ask",[["DDB","https://www.deutsche-digitale-bibliothek.de/item/XARSZCS7LMXHMCQYYC3OTPPCF3GMVBRM"]]]
+]],
+["Monografie open access",[
+ ["brem","Breman, <i>Mobilizing Labour for the Global Coffee Market</i>","PDF completo, OAPEN.","pdf",[["Scarica PDF","https://library.oapen.org/bitstream/20.500.12657/32864/1/597440.pdf"]]],
+ ["anda","Andaya, <i>The Heritage of Arung Palakka</i>","PDF completo, OAPEN.","pdf",[["Scarica PDF","https://library.oapen.org/bitstream/20.500.12657/32242/1/613368.pdf"]]],
+ ["clmo","Clulow e Mostert (a cura di), <i>The Dutch and English East India Companies</i>","Open access. Dalla scheda DOAB trovi il PDF.","pdf",[["DOAB","https://directory.doabooks.org/handle/20.500.12854/32116"]]],
+ ["part","Parthesius, <i>Dutch Ships in Tropical Waters</i>","Open access, OAPEN.","pdf",[["Scheda","https://find.library.upatras.gr/Record/oapen-20.500.12657-34453/Details"],["Cerca su OAPEN","https://library.oapen.org/discover?query=Dutch+Ships+in+Tropical+Waters"]]],
+ ["inne","Innes, <i>The Door Ajar</i> (tesi di dottorato, 1980)","Repository Deep Blue, Università del Michigan.","pdf",[["Deep Blue","https://deepblue.lib.umich.edu/handle/2027.42/157759"]]],
+ ["andr","Andrade, <i>How Taiwan Became Chinese</i>","Pubblicato anche gratis su Gutenberg-e. Link attuale non verificato.","ask",[["Recensione JAS","https://cambridge.org/core/journals/journal-of-asian-studies/article/how-taiwan-became-chinese-dutch-spanish-and-han-colonization-in-the-seventeenth-century-by-tonio-andrade-new-york-columbia-university-press-2007-1407-pp-6000-cloth-also-available-online-at-httpwwwgutenbergeorg/89801C18CE2AB8AFF0A3E3EC91D92CCA"]]]
+]],
+["Carioti",[
+ ["car1","Carioti, <i>Cina e Giappone sui mari nei secoli XVI-XVII</i>","PDF depositato ad accesso riservato: clicca \"Richiedi una copia\" nella scheda.","ask",[["UNORA","https://unora.unior.it/handle/11574/39595"]]]
+]],
+["Articoli",[
+ ["gejo","Gelderblom e Jonker, \"Completing a Financial Revolution\" (2004)","PDF sul sito di Cambridge.","pdf",[["Cambridge","https://www.cambridge.org/core/services/aop-cambridge-core/content/view/452246ECA55A3BC0018327431BAB30EF/S002205070400292Xa.pdf/completing-a-financial-revolution-the-finance-of-the-dutch-east-india-trade-and-the-rise-of-the-amsterdam-capital-market-15951612.pdf"]]],
+ ["jstor","Subrahmanyam, Flynn e Giráldez (2), Wills, Vink, Hobsbawm, Arano","Su JSTOR o sui siti degli editori. Accedi con le credenziali dell'Orientale.","web",[["JSTOR","https://www.jstor.org/"]]]
+]]
+];
+const lab={pdf:"PDF",web:"Online",ask:"Da richiedere"};
+const ls={get(k){try{return JSON.parse(localStorage.getItem(k)||"{}")}catch(e){return{}}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+let done=ls.get("voc-fonti");
+const total=S.reduce((n,s)=>n+s[1].length,0);
+document.getElementById("sections").innerHTML=S.map(([h,items])=>`<h2>${h}</h2><div class="list">${items.map(([id,t,n,b,l])=>`
+ <div class="item${done[id]?' done':''}" id="it-${id}">
+  <input type="checkbox" id="cb-${id}" data-id="${id}" ${done[id]?'checked':''} aria-label="Segna come scaricato">
+  <div class="body"><label for="cb-${id}" class="t">${t}</label><span class="badge b-${b}">${lab[b]}</span>
+   <div class="note">${n}</div>
+   <div class="links">${l.map(([a,u])=>`<a href="${u}" target="_blank" rel="noopener">${a} ↗</a>`).join("")}</div></div>
+ </div>`).join("")}</div>`).join("");
+function upd(){const c=Object.values(done).filter(Boolean).length;document.getElementById("count").textContent=c+" / "+total+" scaricate";document.getElementById("bar").style.width=(c/total*100)+"%"}
+document.addEventListener("change",e=>{const id=e.target.dataset&&e.target.dataset.id;if(!id)return;done[id]=e.target.checked;document.getElementById("it-"+id).classList.toggle("done",e.target.checked);ls.set("voc-fonti",done);upd()});
+upd();
+</script>
+
+</body>
+</html>
